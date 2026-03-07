@@ -1,19 +1,21 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class PlayerCombat : MonoBehaviour
 {
+    [Header("Input & Animation")]
     public InputActionReference attackAction;
-
-    [Header("Attack")]
+    public Animator animator;
+    public Transform slashVisual; // Slash animation object to rotate (optional)
+    
+    [Header("Attack Settings")]
     public Transform attackPoint;
     public float attackRange = 2.4f;
-    public LayerMask enemyLayer;
-
-    public float attackCooldown = 0.12f; // FAST
-    private float lastAttackTime;
-
+    public float attackPointOffset = 1f;
+    public float attackCooldown = 0.5f;
     public int damage = 1;
+    public LayerMask enemyLayer;
 
     [Header("Slash VFX")]
     public GameObject slashEffectPrefab;
@@ -21,44 +23,99 @@ public class PlayerCombat : MonoBehaviour
     public float slashEffectLifetime = 0.2f;
     public bool parentSlashToPlayer = true;
 
+    private PlayerMovement playerMovement;
+    private Vector2 lastAttackDirection = Vector2.right;
+    private float nextAttackTime;
+
+    private void Start()
+    {
+        playerMovement = GetComponent<PlayerMovement>();
+    }
+
+    private void Update()
+    {
+        UpdateAttackPointPosition();
+        HandleAttackInput();
+    }
+
     private void OnEnable()
     {
-        attackAction.action.performed += OnAttack;
-        attackAction.action.Enable();
+        if (attackAction?.action != null)
+            attackAction.action.Enable();
     }
 
     private void OnDisable()
     {
-        attackAction.action.performed -= OnAttack;
-        attackAction.action.Disable();
+        if (attackAction?.action != null)
+            attackAction.action.Disable();
     }
 
-    private void OnAttack(InputAction.CallbackContext context)
+    private void HandleAttackInput()
     {
-        if (Time.time < lastAttackTime + attackCooldown)
+        if (attackAction?.action == null || !attackAction.action.WasPressedThisFrame())
             return;
 
-        lastAttackTime = Time.time;
-        Attack();
+        if (Time.time >= nextAttackTime)
+        {
+            Attack();
+            nextAttackTime = Time.time + attackCooldown;
+        }
+    }
+
+    private void UpdateAttackPointPosition()
+    {
+        if (attackPoint == null || playerMovement == null)
+            return;
+
+        Vector2 moveDirection = playerMovement.GetMovementDirection;
+        
+        if (moveDirection.sqrMagnitude > 0.0001f)
+            lastAttackDirection = moveDirection.normalized;
+
+        attackPoint.position = transform.position + (Vector3)(lastAttackDirection * attackPointOffset);
     }
 
     private void Attack()
     {
+        TriggerAnimation();
         SpawnSlashEffect();
+        DealDamage();
+    }
 
-        Collider2D[] hits = Physics2D.OverlapCircleAll(
-            attackPoint.position,
-            attackRange,
-            enemyLayer
-        );
-
-        foreach (Collider2D enemy in hits)
+    private void TriggerAnimation()
+    {
+        if (animator != null)
         {
-            Vector2 direction = (enemy.transform.position - transform.position).normalized;
+            animator.SetBool("IsAttacking", true);
+            animator.SetFloat("AttackX", lastAttackDirection.x);
+            animator.SetFloat("AttackY", lastAttackDirection.y);
+            StartCoroutine(ResetAttackBool());
+        }
 
-            var health = enemy.GetComponent<EnemyHealth>();
+        // Rotate slash visual to face attack direction
+        if (slashVisual != null)
+        {
+            float angle = Mathf.Atan2(lastAttackDirection.y, lastAttackDirection.x) * Mathf.Rad2Deg;
+            slashVisual.rotation = Quaternion.Euler(0f, 0f, angle);
+        }
+    }
+
+    private IEnumerator ResetAttackBool()
+    {
+        yield return null;
+        animator?.SetBool("IsAttacking", false);
+    }
+
+    private void DealDamage()
+    {
+        Collider2D[] hits = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayer);
+
+        foreach (Collider2D hit in hits)
+        {
+            EnemyHealth health = hit.GetComponent<EnemyHealth>();
             if (health != null)
             {
+                Vector2 direction = (hit.transform.position - transform.position).normalized;
                 health.TakeDamage(damage, direction);
             }
         }
@@ -70,17 +127,11 @@ public class PlayerCombat : MonoBehaviour
             return;
 
         Transform spawnTransform = slashSpawnPoint != null ? slashSpawnPoint : transform;
-        Vector3 spawnPosition = spawnTransform.position;
-
-        Vector2 aimDirection = (attackPoint.position - transform.position);
-        if (aimDirection.sqrMagnitude < 0.0001f)
-            aimDirection = Vector2.right;
-
-        float angle = Mathf.Atan2(aimDirection.y, aimDirection.x) * Mathf.Rad2Deg;
+        float angle = Mathf.Atan2(lastAttackDirection.y, lastAttackDirection.x) * Mathf.Rad2Deg;
         Quaternion rotation = Quaternion.Euler(0f, 0f, angle);
-
         Transform parent = parentSlashToPlayer ? spawnTransform : null;
-        GameObject slash = Instantiate(slashEffectPrefab, spawnPosition, rotation, parent);
+
+        GameObject slash = Instantiate(slashEffectPrefab, spawnTransform.position, rotation, parent);
         Destroy(slash, slashEffectLifetime);
     }
 

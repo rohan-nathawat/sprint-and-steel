@@ -15,6 +15,8 @@ public class PlayerMovement : MonoBehaviour
     public InputActionReference movementAction;
     private Vector2 movement;
     public AnimationCurve dashCurve;
+    
+    public Vector2 GetMovementDirection => movement;
 
     private bool isDashing;
 
