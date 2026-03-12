@@ -314,12 +314,12 @@ TextureImporter:
       name: Furniture_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 854
-        width: 30
-        height: 9
+        x: 1
+        y: 855
+        width: 28
+        height: 7
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -336,12 +336,12 @@ TextureImporter:
       name: Furniture_1
       rect:
         serializedVersion: 2
-        x: 30
-        y: 847
-        width: 27
-        height: 17
+        x: 31
+        y: 848
+        width: 25
+        height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -359,11 +359,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 767
-        width: 81
-        height: 80
+        y: 768
+        width: 80
+        height: 78
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -380,12 +380,12 @@ TextureImporter:
       name: Furniture_3
       rect:
         serializedVersion: 2
-        x: 737
-        y: 831
-        width: 14
-        height: 17
+        x: 738
+        y: 832
+        width: 12
+        height: 15
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -402,12 +402,12 @@ TextureImporter:
       name: Furniture_4
       rect:
         serializedVersion: 2
-        x: 753
-        y: 831
-        width: 14
-        height: 18
+        x: 754
+        y: 832
+        width: 12
+        height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -424,12 +424,12 @@ TextureImporter:
       name: Furniture_5
       rect:
         serializedVersion: 2
-        x: 768
-        y: 831
-        width: 16
-        height: 21
+        x: 769
+        y: 832
+        width: 14
+        height: 19
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -446,12 +446,12 @@ TextureImporter:
       name: Furniture_6
       rect:
         serializedVersion: 2
-        x: 784
-        y: 831
-        width: 16
-        height: 21
+        x: 785
+        y: 832
+        width: 14
+        height: 19
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -468,12 +468,12 @@ TextureImporter:
       name: Furniture_7
       rect:
         serializedVersion: 2
-        x: 737
-        y: 799
-        width: 14
-        height: 17
+        x: 738
+        y: 800
+        width: 12
+        height: 15
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -490,12 +490,12 @@ TextureImporter:
       name: Furniture_8
       rect:
         serializedVersion: 2
-        x: 753
-        y: 799
-        width: 14
-        height: 18
+        x: 754
+        y: 800
+        width: 12
+        height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -512,12 +512,12 @@ TextureImporter:
       name: Furniture_9
       rect:
         serializedVersion: 2
-        x: 769
-        y: 799
-        width: 14
-        height: 22
+        x: 770
+        y: 800
+        width: 12
+        height: 20
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -534,12 +534,12 @@ TextureImporter:
       name: Furniture_10
       rect:
         serializedVersion: 2
-        x: 785
-        y: 799
-        width: 14
-        height: 22
+        x: 786
+        y: 800
+        width: 12
+        height: 20
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -557,11 +557,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 719
-        width: 97
-        height: 60
+        y: 720
+        width: 96
+        height: 58
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -578,12 +578,12 @@ TextureImporter:
       name: Furniture_12
       rect:
         serializedVersion: 2
-        x: 719
-        y: 767
-        width: 50
-        height: 25
+        x: 720
+        y: 768
+        width: 48
+        height: 23
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -600,12 +600,12 @@ TextureImporter:
       name: Furniture_13
       rect:
         serializedVersion: 2
-        x: 768
-        y: 767
-        width: 16
-        height: 18
+        x: 769
+        y: 768
+        width: 14
+        height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -622,12 +622,12 @@ TextureImporter:
       name: Furniture_14
       rect:
         serializedVersion: 2
-        x: 786
-        y: 767
-        width: 12
-        height: 22
+        x: 787
+        y: 768
+        width: 10
+        height: 20
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -644,12 +644,12 @@ TextureImporter:
       name: Furniture_15
       rect:
         serializedVersion: 2
-        x: 735
-        y: 735
-        width: 34
-        height: 25
+        x: 736
+        y: 736
+        width: 32
+        height: 23
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -666,12 +666,12 @@ TextureImporter:
       name: Furniture_16
       rect:
         serializedVersion: 2
-        x: 735
-        y: 719
-        width: 34
-        height: 17
+        x: 769
+        y: 736
+        width: 14
+        height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -688,12 +688,12 @@ TextureImporter:
       name: Furniture_17
       rect:
         serializedVersion: 2
-        x: 768
-        y: 735
-        width: 16
-        height: 18
+        x: 787
+        y: 736
+        width: 10
+        height: 20
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -710,12 +710,12 @@ TextureImporter:
       name: Furniture_18
       rect:
         serializedVersion: 2
-        x: 786
-        y: 735
-        width: 12
-        height: 22
+        x: 736
+        y: 720
+        width: 32
+        height: 15
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -732,12 +732,12 @@ TextureImporter:
       name: Furniture_19
       rect:
         serializedVersion: 2
-        x: 0
-        y: 660
-        width: 81
-        height: 59
+        x: 769
+        y: 720
+        width: 14
+        height: 11
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -754,12 +754,12 @@ TextureImporter:
       name: Furniture_20
       rect:
         serializedVersion: 2
-        x: 756
-        y: 703
-        width: 8
-        height: 17
+        x: 787
+        y: 720
+        width: 10
+        height: 12
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -776,12 +776,12 @@ TextureImporter:
       name: Furniture_21
       rect:
         serializedVersion: 2
-        x: 768
-        y: 719
-        width: 16
-        height: 13
+        x: 0
+        y: 661
+        width: 80
+        height: 57
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -798,12 +798,12 @@ TextureImporter:
       name: Furniture_22
       rect:
         serializedVersion: 2
-        x: 786
-        y: 719
-        width: 12
-        height: 14
+        x: 741
+        y: 707
+        width: 6
+        height: 10
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -820,12 +820,12 @@ TextureImporter:
       name: Furniture_23
       rect:
         serializedVersion: 2
-        x: 740
-        y: 706
-        width: 8
-        height: 12
+        x: 757
+        y: 704
+        width: 6
+        height: 15
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -842,12 +842,12 @@ TextureImporter:
       name: Furniture_24
       rect:
         serializedVersion: 2
-        x: 768
-        y: 703
-        width: 16
-        height: 10
+        x: 769
+        y: 704
+        width: 14
+        height: 8
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -864,12 +864,12 @@ TextureImporter:
       name: Furniture_25
       rect:
         serializedVersion: 2
-        x: 786
-        y: 703
-        width: 12
-        height: 10
+        x: 787
+        y: 704
+        width: 10
+        height: 8
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -886,12 +886,12 @@ TextureImporter:
       name: Furniture_26
       rect:
         serializedVersion: 2
-        x: 735
-        y: 671
-        width: 34
-        height: 29
+        x: 736
+        y: 672
+        width: 32
+        height: 27
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -908,12 +908,12 @@ TextureImporter:
       name: Furniture_27
       rect:
         serializedVersion: 2
-        x: 771
-        y: 657
-        width: 10
-        height: 43
+        x: 772
+        y: 658
+        width: 8
+        height: 41
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -930,12 +930,12 @@ TextureImporter:
       name: Furniture_28
       rect:
         serializedVersion: 2
-        x: 0
-        y: 543
-        width: 32
-        height: 43
+        x: 1
+        y: 544
+        width: 30
+        height: 41
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -952,12 +952,12 @@ TextureImporter:
       name: Furniture_29
       rect:
         serializedVersion: 2
-        x: 31
-        y: 463
-        width: 65
-        height: 126
+        x: 32
+        y: 464
+        width: 63
+        height: 124
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -974,12 +974,12 @@ TextureImporter:
       name: Furniture_30
       rect:
         serializedVersion: 2
-        x: 98
-        y: 511
-        width: 28
-        height: 85
+        x: 99
+        y: 512
+        width: 26
+        height: 83
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -996,12 +996,12 @@ TextureImporter:
       name: Furniture_31
       rect:
         serializedVersion: 2
-        x: 127
-        y: 511
-        width: 66
-        height: 73
+        x: 128
+        y: 512
+        width: 64
+        height: 71
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1018,12 +1018,12 @@ TextureImporter:
       name: Furniture_32
       rect:
         serializedVersion: 2
-        x: 196
-        y: 511
-        width: 24
-        height: 73
+        x: 197
+        y: 512
+        width: 22
+        height: 71
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1040,12 +1040,12 @@ TextureImporter:
       name: Furniture_33
       rect:
         serializedVersion: 2
-        x: 229
-        y: 543
-        width: 22
-        height: 37
+        x: 230
+        y: 544
+        width: 20
+        height: 35
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1063,11 +1063,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 415
-        width: 29
-        height: 121
+        y: 416
+        width: 28
+        height: 119
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1084,12 +1084,12 @@ TextureImporter:
       name: Furniture_35
       rect:
         serializedVersion: 2
-        x: 100
-        y: 485
-        width: 24
-        height: 24
+        x: 101
+        y: 486
+        width: 22
+        height: 22
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1106,12 +1106,12 @@ TextureImporter:
       name: Furniture_36
       rect:
         serializedVersion: 2
-        x: 131
-        y: 483
-        width: 26
-        height: 27
+        x: 132
+        y: 484
+        width: 24
+        height: 25
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1128,12 +1128,12 @@ TextureImporter:
       name: Furniture_37
       rect:
         serializedVersion: 2
-        x: 16
-        y: 463
-        width: 32
-        height: 14
+        x: 17
+        y: 464
+        width: 30
+        height: 12
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1150,12 +1150,12 @@ TextureImporter:
       name: Furniture_38
       rect:
         serializedVersion: 2
-        x: 79
-        y: 451
-        width: 66
-        height: 26
+        x: 80
+        y: 452
+        width: 64
+        height: 24
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1172,12 +1172,12 @@ TextureImporter:
       name: Furniture_39
       rect:
         serializedVersion: 2
-        x: 144
-        y: 447
-        width: 32
-        height: 34
+        x: 145
+        y: 448
+        width: 30
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1194,12 +1194,12 @@ TextureImporter:
       name: Furniture_40
       rect:
         serializedVersion: 2
-        x: 17
-        y: 436
-        width: 30
-        height: 13
+        x: 18
+        y: 437
+        width: 28
+        height: 11
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1216,12 +1216,12 @@ TextureImporter:
       name: Furniture_41
       rect:
         serializedVersion: 2
-        x: 49
-        y: 436
-        width: 30
-        height: 19
+        x: 50
+        y: 437
+        width: 28
+        height: 17
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1238,12 +1238,12 @@ TextureImporter:
       name: Furniture_42
       rect:
         serializedVersion: 2
-        x: 80
-        y: 434
-        width: 32
-        height: 14
+        x: 81
+        y: 435
+        width: 30
+        height: 12
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1260,12 +1260,12 @@ TextureImporter:
       name: Furniture_43
       rect:
         serializedVersion: 2
-        x: 147
-        y: 418
-        width: 10
-        height: 25
+        x: 148
+        y: 419
+        width: 8
+        height: 23
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1282,12 +1282,12 @@ TextureImporter:
       name: Furniture_44
       rect:
         serializedVersion: 2
-        x: 161
-        y: 418
-        width: 14
-        height: 25
+        x: 162
+        y: 419
+        width: 12
+        height: 23
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1304,12 +1304,12 @@ TextureImporter:
       name: Furniture_45
       rect:
         serializedVersion: 2
-        x: 178
-        y: 401
-        width: 75
-        height: 42
+        x: 179
+        y: 402
+        width: 73
+        height: 40
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1327,11 +1327,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 329
-        width: 75
-        height: 104
+        y: 330
+        width: 74
+        height: 102
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1348,12 +1348,12 @@ TextureImporter:
       name: Furniture_47
       rect:
         serializedVersion: 2
-        x: 74
-        y: 415
-        width: 7
-        height: 18
+        x: 75
+        y: 416
+        width: 5
+        height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1370,12 +1370,12 @@ TextureImporter:
       name: Furniture_48
       rect:
         serializedVersion: 2
-        x: 82
-        y: 399
-        width: 60
-        height: 34
+        x: 83
+        y: 400
+        width: 58
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1392,12 +1392,12 @@ TextureImporter:
       name: Furniture_49
       rect:
         serializedVersion: 2
-        x: 146
-        y: 369
-        width: 29
-        height: 48
+        x: 147
+        y: 370
+        width: 27
+        height: 46
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1414,12 +1414,12 @@ TextureImporter:
       name: Furniture_50
       rect:
         serializedVersion: 2
-        x: 74
-        y: 303
-        width: 23
-        height: 92
+        x: 75
+        y: 304
+        width: 21
+        height: 90
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1436,12 +1436,12 @@ TextureImporter:
       name: Furniture_51
       rect:
         serializedVersion: 2
-        x: 97
-        y: 335
-        width: 46
-        height: 64
+        x: 98
+        y: 336
+        width: 44
+        height: 62
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1458,12 +1458,12 @@ TextureImporter:
       name: Furniture_52
       rect:
         serializedVersion: 2
-        x: 175
-        y: 392
-        width: 16
-        height: 22
+        x: 176
+        y: 393
+        width: 14
+        height: 20
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1480,12 +1480,12 @@ TextureImporter:
       name: Furniture_53
       rect:
         serializedVersion: 2
-        x: 178
-        y: 367
-        width: 11
-        height: 16
+        x: 179
+        y: 368
+        width: 9
+        height: 14
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1503,11 +1503,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 159
-        width: 81
-        height: 162
+        y: 160
+        width: 80
+        height: 160
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1524,12 +1524,12 @@ TextureImporter:
       name: Furniture_55
       rect:
         serializedVersion: 2
-        x: 84
-        y: 271
-        width: 8
-        height: 34
+        x: 85
+        y: 272
+        width: 6
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1546,12 +1546,12 @@ TextureImporter:
       name: Furniture_56
       rect:
         serializedVersion: 2
-        x: 97
-        y: 303
-        width: 46
-        height: 23
+        x: 98
+        y: 304
+        width: 44
+        height: 21
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1568,12 +1568,12 @@ TextureImporter:
       name: Furniture_57
       rect:
         serializedVersion: 2
-        x: 101
-        y: 289
-        width: 7
-        height: 15
+        x: 102
+        y: 290
+        width: 5
+        height: 13
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1590,12 +1590,12 @@ TextureImporter:
       name: Furniture_58
       rect:
         serializedVersion: 2
-        x: 145
-        y: 273
-        width: 30
-        height: 31
+        x: 112
+        y: 293
+        width: 32
+        height: 6
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1612,12 +1612,12 @@ TextureImporter:
       name: Furniture_59
       rect:
         serializedVersion: 2
-        x: 111
-        y: 292
-        width: 34
-        height: 8
+        x: 146
+        y: 274
+        width: 28
+        height: 29
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1634,12 +1634,12 @@ TextureImporter:
       name: Furniture_60
       rect:
         serializedVersion: 2
-        x: 99
-        y: 276
-        width: 11
-        height: 6
+        x: 100
+        y: 277
+        width: 9
+        height: 4
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1656,12 +1656,12 @@ TextureImporter:
       name: Furniture_61
       rect:
         serializedVersion: 2
-        x: 115
-        y: 274
-        width: 10
-        height: 11
+        x: 116
+        y: 275
+        width: 8
+        height: 9
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1678,12 +1678,12 @@ TextureImporter:
       name: Furniture_62
       rect:
         serializedVersion: 2
-        x: 129
-        y: 276
-        width: 15
-        height: 7
+        x: 130
+        y: 277
+        width: 13
+        height: 5
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1700,12 +1700,12 @@ TextureImporter:
       name: Furniture_63
       rect:
         serializedVersion: 2
-        x: 81
-        y: 241
-        width: 31
-        height: 31
+        x: 82
+        y: 242
+        width: 29
+        height: 29
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1722,12 +1722,12 @@ TextureImporter:
       name: Furniture_64
       rect:
         serializedVersion: 2
-        x: 82
-        y: 128
-        width: 12
-        height: 113
+        x: 83
+        y: 129
+        width: 10
+        height: 111
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1744,12 +1744,12 @@ TextureImporter:
       name: Furniture_65
       rect:
         serializedVersion: 2
-        x: 98
-        y: 128
-        width: 44
-        height: 113
+        x: 99
+        y: 129
+        width: 42
+        height: 111
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1766,12 +1766,12 @@ TextureImporter:
       name: Furniture_66
       rect:
         serializedVersion: 2
-        x: 143
-        y: 127
-        width: 56
-        height: 111
+        x: 144
+        y: 128
+        width: 54
+        height: 109
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1788,7 +1788,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 33dc34c9c8b1e9a4ab9a18b20e55de49
     internalID: 0
     vertices: []
     indices: 
@@ -1796,7 +1796,9 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries: []
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":64.0,"y":64.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":0,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
       Furniture_0: 5852135935505538600
       Furniture_1: 6580706180292963874

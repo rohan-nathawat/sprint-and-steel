@@ -1,6 +1,7 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using System.Collections.Generic;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -36,6 +37,11 @@ public class PlayerMovement : MonoBehaviour
 
     private bool isDashing;
     private Vector2 lastFacingDirection = Vector2.down;
+    private HashSet<EnemyHealth> enemiesHitThisDash = new HashSet<EnemyHealth>();
+
+    [Header("Dash Collision")]
+    public LayerMask enemyLayer;
+    public float dashCollisionRadius = 1.5f;
 
     void Awake()
     {
@@ -135,6 +141,7 @@ public class PlayerMovement : MonoBehaviour
     IEnumerator Dash(Vector2 direction)
     {
         isDashing = true;
+        enemiesHitThisDash.Clear();
         float elapsedTime = 0f;
 
         while (elapsedTime < dashDuration)
@@ -146,10 +153,28 @@ public class PlayerMovement : MonoBehaviour
             float currentDashSpeed = dashCurve.Evaluate(dashProgress) * dashSpeed;
             rb.linearVelocity = direction * currentDashSpeed;
 
+            CheckDashCollisions();
+
             elapsedTime += Time.deltaTime;
             yield return null;
         }
 
         isDashing = false;
+    }
+
+    private void CheckDashCollisions()
+    {
+        Collider2D[] hits = Physics2D.OverlapCircleAll(transform.position, dashCollisionRadius, enemyLayer);
+
+        foreach (Collider2D hit in hits)
+        {
+            EnemyHealth health = hit.GetComponent<EnemyHealth>();
+            if (health == null || enemiesHitThisDash.Contains(health))
+                continue;
+
+            enemiesHitThisDash.Add(health);
+            Vector2 direction = (hit.transform.position - transform.position).normalized;
+            health.TakeDamage(999, direction);
+        }
     }
 }

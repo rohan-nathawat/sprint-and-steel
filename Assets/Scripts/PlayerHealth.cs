@@ -1,7 +1,10 @@
 using UnityEngine;
+using System;
 
 public class PlayerHealth : MonoBehaviour
 {
+    public static event Action<PlayerHealth> OnPlayerDied;
+
     [Header("Health")]
     public int maxHealth = 5;
     public float invulnerabilityTime = 0.25f;
@@ -53,6 +56,7 @@ public class PlayerHealth : MonoBehaviour
 
     private void Die()
     {
+        OnPlayerDied?.Invoke(this);
         Debug.Log("Player died.");
         Destroy(gameObject);
     }

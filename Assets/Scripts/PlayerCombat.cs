@@ -38,6 +38,7 @@ public class PlayerCombat : MonoBehaviour
 
     private Vector2 slashAttackDirection;
     private Vector3 slashLocalOffset;
+    private Vector3 slashAttackWorldOffset;
     private Quaternion slashRotation;
     private Coroutine followSlashRoutine;
 
@@ -102,7 +103,7 @@ public class PlayerCombat : MonoBehaviour
 
         Vector2 moveDirection = playerMovement.GetMovementDirection;
         
-        if (moveDirection.sqrMagnitude > 0.0001f)
+        if (!isAttackAnimationPlaying && moveDirection.sqrMagnitude > 0.0001f)
             lastAttackDirection = moveDirection.normalized;
 
         attackPoint.position = transform.position + (Vector3)(lastAttackDirection * attackPointOffset);
@@ -148,6 +149,16 @@ public class PlayerCombat : MonoBehaviour
     {
         isAttackAnimationPlaying = true;
         yield return new WaitForSeconds(attackAnimationDuration);
+        
+        if (followSlashRoutine != null)
+        {
+            StopCoroutine(followSlashRoutine);
+            followSlashRoutine = null;
+        }
+        
+        if (activeSlashEffect != null)
+            activeSlashEffect.transform.position = transform.position + slashAttackWorldOffset;
+        
         animator?.SetBool("IsAttacking", false);
         isAttackAnimationPlaying = false;
         attackAnimationRoutine = null;
@@ -182,6 +193,7 @@ public class PlayerCombat : MonoBehaviour
         slashRotation = Quaternion.Euler(0f, 0f, angle);
 
         slashLocalOffset = (Vector3)(slashAttackDirection * attackPointOffset);
+        slashAttackWorldOffset = slashLocalOffset;
         Vector3 worldSpawnPosition = transform.position + slashLocalOffset;
 
         activeSlashEffect = Instantiate(slashEffectPrefab, worldSpawnPosition, slashRotation, null);
@@ -198,9 +210,9 @@ public class PlayerCombat : MonoBehaviour
 
     private IEnumerator FollowPlayerWithFixedLocalOffset()
     {
-        while (activeSlashEffect != null)
+        while (activeSlashEffect != null && isAttackAnimationPlaying)
         {
-            activeSlashEffect.transform.position = transform.position + slashLocalOffset;
+            activeSlashEffect.transform.position = transform.position + slashAttackWorldOffset;
             activeSlashEffect.transform.rotation = slashRotation;
             yield return null;
         }
@@ -230,5 +242,31 @@ public class PlayerCombat : MonoBehaviour
 
         Gizmos.color = Color.cyan;
         Gizmos.DrawWireSphere(attackPoint.position, attackRange);
+    }
+
+    public void ForceStopCombatVisuals()
+    {
+        if (attackAnimationRoutine != null)
+        {
+            StopCoroutine(attackAnimationRoutine);
+            attackAnimationRoutine = null;
+        }
+
+        if (followSlashRoutine != null)
+        {
+            StopCoroutine(followSlashRoutine);
+            followSlashRoutine = null;
+        }
+
+        isAttackAnimationPlaying = false;
+        animator?.SetBool("IsAttacking", false);
+
+        if (activeSlashEffect != null)
+            Destroy(activeSlashEffect);
+
+        activeSlashEffect = null;
+
+        if (attackAction?.action != null)
+            attackAction.action.Disable();
     }
 }
