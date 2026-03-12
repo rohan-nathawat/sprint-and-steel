@@ -4,6 +4,8 @@ using UnityEngine.InputSystem;
 
 public class PlayerCombat : MonoBehaviour
 {
+    public static event System.Action OnPlayerAttacked;
+
     [Header("Input & Animation")]
     public InputActionReference attackAction;
     public Animator animator;
@@ -111,6 +113,7 @@ public class PlayerCombat : MonoBehaviour
 
     private void Attack()
     {
+        OnPlayerAttacked?.Invoke();
         TriggerAnimation();
         SpawnSlashEffect();
         DealDamage();

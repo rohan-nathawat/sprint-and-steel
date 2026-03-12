@@ -4,6 +4,7 @@ using System;
 public class PlayerHealth : MonoBehaviour
 {
     public static event Action<PlayerHealth> OnPlayerDied;
+    public static event Action OnPlayerDamaged;
 
     [Header("Health")]
     public int maxHealth = 5;
@@ -42,6 +43,7 @@ public class PlayerHealth : MonoBehaviour
 
         CurrentHealth -= damage;
         invulnerabilityTimer = invulnerabilityTime;
+        OnPlayerDamaged?.Invoke();
         Debug.Log($"Player took {damage} damage. Health: {CurrentHealth}/{maxHealth}");
 
         if (knockback != null)
