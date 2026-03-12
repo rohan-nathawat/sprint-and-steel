@@ -20,6 +20,11 @@ public class TimedRunManager : MonoBehaviour
     private int killCount;
     private bool runEnded;
 
+    public float TimeRemaining => timeRemaining;
+    public int KillCount => killCount;
+    public float RunDuration => runDurationSeconds;
+    public bool RunEnded => runEnded;
+
     private void Awake()
     {
         Time.timeScale = 1f;

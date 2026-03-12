@@ -10,6 +10,11 @@ public class PlayerHealth : MonoBehaviour
     public int maxHealth = 5;
     public float invulnerabilityTime = 0.25f;
 
+    [Header("Hit Audio")]
+    public AudioSource audioSource;
+    public AudioClip hitSfx;
+    [Range(0f, 1f)] public float hitSfxVolume = 1f;
+
     public int CurrentHealth { get; private set; }
 
     private float invulnerabilityTimer;
@@ -19,6 +24,13 @@ public class PlayerHealth : MonoBehaviour
     {
         CurrentHealth = maxHealth;
         knockback = GetComponent<PlayerKnockback>();
+
+        if (audioSource == null)
+            audioSource = GetComponent<AudioSource>();
+
+        if (hitSfx != null)
+            hitSfx.LoadAudioData();
+
         Debug.Log($"Player Health: {CurrentHealth}/{maxHealth}");
     }
 
@@ -41,6 +53,7 @@ public class PlayerHealth : MonoBehaviour
         if (invulnerabilityTimer > 0f)
             return;
 
+        TryPlayHitSfx();
         CurrentHealth -= damage;
         invulnerabilityTimer = invulnerabilityTime;
         OnPlayerDamaged?.Invoke();
@@ -54,6 +67,14 @@ public class PlayerHealth : MonoBehaviour
 
         if (CurrentHealth <= 0)
             Die();
+    }
+
+    private void TryPlayHitSfx()
+    {
+        if (hitSfx == null || audioSource == null)
+            return;
+
+        audioSource.PlayOneShot(hitSfx, hitSfxVolume);
     }
 
     private void Die()

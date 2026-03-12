@@ -27,6 +27,17 @@ public class PlayerMovement : MonoBehaviour
     [Range(0f, 1f)] public float dashSfxVolume = 1f;
     private float dashCooldownTimer = 0f;
 
+    public float DashCharge01
+    {
+        get
+        {
+            if (dashCooldown <= 0f)
+                return 1f;
+
+            return Mathf.Clamp01(1f - (dashCooldownTimer / dashCooldown));
+        }
+    }
+
     private Rigidbody2D rb;
     private PlayerKnockback playerKnockback;
     public InputActionReference movementAction;

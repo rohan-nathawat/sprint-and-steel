@@ -44,6 +44,21 @@ public class PlayerCombat : MonoBehaviour
     private Quaternion slashRotation;
     private Coroutine followSlashRoutine;
 
+    public float AttackCharge01
+    {
+        get
+        {
+            if (attackCooldown <= 0f)
+                return 1f;
+
+            float remaining = nextAttackTime - Time.time;
+            if (remaining <= 0f)
+                return 1f;
+
+            return Mathf.Clamp01(1f - (remaining / attackCooldown));
+        }
+    }
+
     private void Start()
     {
         playerMovement = GetComponent<PlayerMovement>();
