@@ -72,6 +72,14 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (QuestBoardUI.IsAnyBoardOpen)
+        {
+            movement = Vector2.zero;
+            rb.linearVelocity = Vector2.zero;
+            UpdateDirectionSprite();
+            return;
+        }
+
         if (playerKnockback != null && playerKnockback.isKnockbackActive)
         {
             UpdateDirectionSprite();
@@ -157,6 +165,9 @@ public class PlayerMovement : MonoBehaviour
 
         while (elapsedTime < dashDuration)
         {
+            if (QuestBoardUI.IsAnyBoardOpen)
+                break;
+
             if (playerKnockback != null && playerKnockback.isKnockbackActive)
                 break;
 
@@ -171,6 +182,7 @@ public class PlayerMovement : MonoBehaviour
         }
 
         isDashing = false;
+        rb.linearVelocity = Vector2.zero;
     }
 
     private void CheckDashCollisions()

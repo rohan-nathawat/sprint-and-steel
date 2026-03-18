@@ -281,8 +281,7 @@ public class HUDManager : MonoBehaviour
     {
         if (_playerHealth != null)
         {
-            float max = Mathf.Max(1f, _playerHealth.maxHealth);
-            SetHealth(_playerHealth.CurrentHealth / max);
+            SetHealth(_playerHealth.CurrentHealth01);
         }
 
         if (_playerMovement != null)

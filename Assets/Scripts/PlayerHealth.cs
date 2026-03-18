@@ -10,18 +10,34 @@ public class PlayerHealth : MonoBehaviour
     public int maxHealth = 5;
     public float invulnerabilityTime = 0.25f;
 
+    [Header("Regeneration")]
+    public bool enableRegen = true;
+    [Min(0f)] public float regenDelayAfterDamage = 3f;
+    [Min(0f)] public float regenPerSecond = 0.5f;
+
     [Header("Hit Audio")]
     public AudioSource audioSource;
     public AudioClip hitSfx;
     [Range(0f, 1f)] public float hitSfxVolume = 1f;
 
     public int CurrentHealth { get; private set; }
+    public float CurrentHealth01
+    {
+        get
+        {
+            float max = Mathf.Max(1f, maxHealth);
+            return Mathf.Clamp01(_currentHealthFloat / max);
+        }
+    }
 
     private float invulnerabilityTimer;
+    private float regenDelayTimer;
+    private float _currentHealthFloat;
     private PlayerKnockback knockback;
 
     void Awake()
     {
+        _currentHealthFloat = maxHealth;
         CurrentHealth = maxHealth;
         knockback = GetComponent<PlayerKnockback>();
 
@@ -38,6 +54,21 @@ public class PlayerHealth : MonoBehaviour
     {
         if (invulnerabilityTimer > 0f)
             invulnerabilityTimer -= Time.deltaTime;
+
+        if (!enableRegen)
+            return;
+
+        if (CurrentHealth <= 0 || _currentHealthFloat >= maxHealth)
+            return;
+
+        if (regenDelayTimer > 0f)
+        {
+            regenDelayTimer -= Time.deltaTime;
+            return;
+        }
+
+        _currentHealthFloat = Mathf.Min(maxHealth, _currentHealthFloat + regenPerSecond * Time.deltaTime);
+        CurrentHealth = Mathf.Clamp(Mathf.CeilToInt(_currentHealthFloat), 0, maxHealth);
     }
 
     public void TakeDamage(int damage)
@@ -54,8 +85,10 @@ public class PlayerHealth : MonoBehaviour
             return;
 
         TryPlayHitSfx();
-        CurrentHealth -= damage;
+        _currentHealthFloat = Mathf.Max(0f, _currentHealthFloat - damage);
+        CurrentHealth = Mathf.Clamp(Mathf.CeilToInt(_currentHealthFloat), 0, maxHealth);
         invulnerabilityTimer = invulnerabilityTime;
+        regenDelayTimer = regenDelayAfterDamage;
         OnPlayerDamaged?.Invoke();
         Debug.Log($"Player took {damage} damage. Health: {CurrentHealth}/{maxHealth}");
 
