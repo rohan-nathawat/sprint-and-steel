@@ -17,6 +17,7 @@ public class EnemyCombat : MonoBehaviour
 
     private float nextAttackTime;
     private bool isAttacking;
+    private bool warnedMissingPlayer;
 
     void Awake()
     {
@@ -33,16 +34,21 @@ public class EnemyCombat : MonoBehaviour
         if (followScript == null)
             followScript = GetComponent<EnemyFollow>();
 
-        Debug.Log($"{gameObject.name} EnemyCombat initialized. AttackRange: {attackRange}, PlayerLayer: {playerLayer.value}");
     }
 
     void Update()
     {
         if (player == null)
         {
-            Debug.LogWarning($"{gameObject.name}: No player reference!");
+            if (!warnedMissingPlayer)
+            {
+                Debug.LogWarning($"{gameObject.name}: No player reference!");
+                warnedMissingPlayer = true;
+            }
             return;
         }
+
+        warnedMissingPlayer = false;
 
         if (isAttacking)
             return;
@@ -54,7 +60,6 @@ public class EnemyCombat : MonoBehaviour
         if (distance > attackRange)
             return;
 
-        Debug.Log($"{gameObject.name} starting attack! Distance: {distance:F2}");
         StartCoroutine(AttackRoutine());
     }
 
@@ -97,13 +102,10 @@ public class EnemyCombat : MonoBehaviour
             return; // Silenced - too spammy for tank charge
         }
 
-        Debug.Log($"{gameObject.name}: FOUND PLAYER COLLIDER '{hit.name}'! Checking for PlayerHealth...");
-        
         PlayerHealth playerHealth = hit.GetComponent<PlayerHealth>();
         if (playerHealth != null)
         {
             Vector2 hitDirection = ((Vector2)hit.transform.position - (Vector2)transform.position).normalized;
-            Debug.Log($"{gameObject.name}: Calling TakeDamage({damage}) on player...");
             playerHealth.TakeDamage(damage, hitDirection);
         }
         else

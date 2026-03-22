@@ -25,6 +25,7 @@ public class DiagonalGrid : MonoBehaviour
     public float pulseStrength = 0.5f;
     public float pulseSpeed    = 1.2f;
     public float waveFrequency = 0.5f;
+    [Min(1f)] public float pulseUpdatesPerSecond = 20f;
 
     [Header("Sorting")]
     public string sortingLayer = "Default";
@@ -34,6 +35,9 @@ public class DiagonalGrid : MonoBehaviour
     SpriteRenderer[,] _hLines;   // horizontal lines of grid
     SpriteRenderer[,] _vLines;   // vertical lines of grid
     Sprite            _whiteSprite;
+    Vector2[,]        _hPulsePositions;
+    Vector2[,]        _vPulsePositions;
+    float             _nextPulseUpdateTime;
 
     void Start()
     {
@@ -43,6 +47,14 @@ public class DiagonalGrid : MonoBehaviour
 
     void Update()
     {
+        if (pulseStrength <= 0f)
+            return;
+
+        float interval = 1f / Mathf.Max(1f, pulseUpdatesPerSecond);
+        if (Time.time < _nextPulseUpdateTime)
+            return;
+
+        _nextPulseUpdateTime = Time.time + interval;
         PulseGrid();
     }
 
@@ -54,6 +66,8 @@ public class DiagonalGrid : MonoBehaviour
     {
         _hLines = new SpriteRenderer[columns, rows + 1];
         _vLines = new SpriteRenderer[columns + 1, rows];
+        _hPulsePositions = new Vector2[columns, rows + 1];
+        _vPulsePositions = new Vector2[columns + 1, rows];
 
         float totalW = columns * cellSize;
         float totalH = rows    * cellSize;
@@ -71,6 +85,7 @@ public class DiagonalGrid : MonoBehaviour
                 new Vector3(cellSize, lineThickness, 1),
                 0f
             );
+            _hPulsePositions[x, y] = new Vector2(wx, wy);
         }
 
         // Vertical lines
@@ -84,6 +99,7 @@ public class DiagonalGrid : MonoBehaviour
                 new Vector3(lineThickness, cellSize, 1),
                 0f
             );
+            _vPulsePositions[x, y] = new Vector2(wx, wy);
         }
 
         // Rotate everything 45 degrees around the centre
@@ -113,17 +129,15 @@ public class DiagonalGrid : MonoBehaviour
 
     void PulseGrid()
     {
-        float totalW = columns * cellSize;
-        float totalH = rows    * cellSize;
-        float startX = transform.position.x - totalW * 0.5f;
-        float startY = transform.position.y - totalH * 0.5f;
+        if (_hLines == null || _vLines == null)
+            return;
 
         for (int x = 0; x < columns; x++)
         for (int y = 0; y <= rows;   y++)
         {
             if (_hLines[x, y] == null) continue;
-            float wx  = startX + x * cellSize;
-            float wy  = startY + y * cellSize;
+            float wx  = _hPulsePositions[x, y].x;
+            float wy  = _hPulsePositions[x, y].y;
             float brightness = GetPulse(wx, wy);
             _hLines[x, y].color = Color.Lerp(lineColor, Color.white, brightness * pulseStrength);
         }
@@ -132,8 +146,8 @@ public class DiagonalGrid : MonoBehaviour
         for (int y = 0; y < rows;     y++)
         {
             if (_vLines[x, y] == null) continue;
-            float wx  = startX + x * cellSize;
-            float wy  = startY + y * cellSize;
+            float wx  = _vPulsePositions[x, y].x;
+            float wy  = _vPulsePositions[x, y].y;
             float brightness = GetPulse(wx, wy);
             _vLines[x, y].color = Color.Lerp(lineColor, Color.white, brightness * pulseStrength);
         }

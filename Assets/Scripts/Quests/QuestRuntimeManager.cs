@@ -88,7 +88,7 @@ public class QuestRuntimeManager : MonoBehaviour
             return;
         }
 
-        SceneManager.LoadScene(_activeQuest.sceneName);
+        SceneTransitionManager.LoadScene(_activeQuest.sceneName);
     }
 
     void HandleSceneLoaded(Scene scene, LoadSceneMode mode)
@@ -154,7 +154,7 @@ public class QuestRuntimeManager : MonoBehaviour
         _completionTriggered = false;
         DestroyRuntimeUI();
 
-        SceneManager.LoadScene(returnScene);
+        SceneTransitionManager.LoadScene(returnScene);
     }
 
     void EnsureRuntimeUI()

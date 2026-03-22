@@ -12,9 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3851a5e018104df46a45b1794e730e92, type: 3}
   m_Name: Quest_New 1
   m_EditorClassIdentifier: Assembly-CSharp::QuestData
-  questName: Test 2
+  questName: Kill 8 Monsters
   location: Dungeon
   difficulty: 1
   status: 1
   sceneName: Dungeon
+  objectiveType: 0
+  objectiveTarget: 8
+  rewardCurrency: 100
+  hubSceneName: Hub
   description: This is a test

@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 // ─────────────────────────────────────────────────────────────
 //  TutorialEnd.cs
@@ -15,9 +14,17 @@ public class TutorialEnd : MonoBehaviour
     [Header("Settings")]
     public string playerTag = "Player";
 
+    bool _triggered;
+
     void OnTriggerEnter2D(Collider2D other)
     {
+        if (_triggered) return;
         if (!other.CompareTag(playerTag)) return;
-        SceneManager.LoadScene(hubSceneName);
+
+        _triggered = true;
+
+        SceneTransitionManager.FreezePlayerInput(other.gameObject);
+
+        SceneTransitionManager.LoadScene(hubSceneName);
     }
 }

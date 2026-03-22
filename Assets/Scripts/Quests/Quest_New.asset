@@ -18,8 +18,8 @@ MonoBehaviour:
   status: 3
   sceneName: Dungeon
   objectiveType: 0
-  objectiveTarget: 8
-  rewardCurrency: 100
+  objectiveTarget: 4
+  rewardCurrency: 50
   hubSceneName: Hub
   description: 'Defeat 8 Monsters.
 
