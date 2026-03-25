@@ -18,6 +18,38 @@ public static class CurrencyWallet
         PlayerPrefs.SetInt(CurrencyKey, Current + amount);
         PlayerPrefs.Save();
     }
+
+    public static void Set(int amount)
+    {
+        PlayerPrefs.SetInt(CurrencyKey, Mathf.Max(0, amount));
+        PlayerPrefs.Save();
+    }
+
+    public static void Reset()
+    {
+        Set(0);
+    }
+
+    public static bool CanAfford(int amount)
+    {
+        if (amount <= 0)
+            return true;
+
+        return Current >= amount;
+    }
+
+    public static bool TrySpend(int amount)
+    {
+        if (amount <= 0)
+            return true;
+
+        if (!CanAfford(amount))
+            return false;
+
+        PlayerPrefs.SetInt(CurrencyKey, Current - amount);
+        PlayerPrefs.Save();
+        return true;
+    }
 }
 
 public class QuestRuntimeManager : MonoBehaviour
@@ -99,10 +131,20 @@ public class QuestRuntimeManager : MonoBehaviour
         bool inQuestScene = scene.name == _activeQuest.sceneName;
         if (inQuestScene)
         {
+            if (_activeQuest.objectiveType == QuestObjectiveType.NoObjective)
+            {
+                _activeQuest = null;
+                _objectiveProgress = 0;
+                _completionTriggered = false;
+                DestroyRuntimeUI();
+                return;
+            }
+
             EnsureRuntimeUI();
             RefreshObjectiveText();
             if (_completionPopup != null)
                 _completionPopup.SetActive(false);
+
             return;
         }
 
@@ -237,9 +279,12 @@ public class QuestRuntimeManager : MonoBehaviour
             return;
 
         int target = Mathf.Max(1, _activeQuest.objectiveTarget);
-        string objectiveLine = _activeQuest.objectiveType == QuestObjectiveType.DefeatEnemies
-            ? $"Defeat enemies: {_objectiveProgress}/{target}"
-            : $"Progress: {_objectiveProgress}/{target}";
+        string objectiveLine = _activeQuest.objectiveType switch
+        {
+            QuestObjectiveType.NoObjective => "No objective",
+            QuestObjectiveType.DefeatEnemies => $"Defeat enemies: {_objectiveProgress}/{target}",
+            _ => $"Progress: {_objectiveProgress}/{target}",
+        };
 
         _objectiveText.text = $"QUEST OBJECTIVE\n{objectiveLine}";
     }

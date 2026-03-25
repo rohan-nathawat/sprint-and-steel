@@ -30,6 +30,7 @@ public class DialogueManager : MonoBehaviour
 
     /// <summary>True while the typewriter coroutine is still running.</summary>
     public bool IsTyping => _isTyping;
+    public bool IsOpen => dialogueBox != null && dialogueBox.activeSelf;
 
     // ─────────────────────────────────────────────────────────
     //  Public API

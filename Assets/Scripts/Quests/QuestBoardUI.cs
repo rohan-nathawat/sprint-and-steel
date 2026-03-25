@@ -157,7 +157,7 @@ public class QuestBoardUI : MonoBehaviour
     {
         if (_selectedIdx < 0 || _selectedIdx >= quests.Count) return;
         var q = quests[_selectedIdx];
-        if (q.status == QuestStatus.Locked) return;
+        if (q.status != QuestStatus.Unlocked) return;
 
         _pendingQuest          = q;
         confirmQuestName.text  = q.questName.ToUpper();

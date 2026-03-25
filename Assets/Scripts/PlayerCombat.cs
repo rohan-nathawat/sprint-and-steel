@@ -90,6 +90,9 @@ public class PlayerCombat : MonoBehaviour
 
     private void HandleAttackInput()
     {
+        if (QuestBoardUI.IsAnyBoardOpen || ShopUI.IsAnyShopOpen)
+            return;
+
         if (attackAction?.action == null)
             return;
 

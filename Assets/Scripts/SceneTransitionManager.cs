@@ -19,6 +19,7 @@ public class SceneTransitionManager : MonoBehaviour
     [Header("Audio")]
     public bool fadeMusic = true;
     public bool fadeOnlyLoopingSources = true;
+    public bool pauseAudioDuringSceneActivation = true;
 
     [Header("Fallback")]
     public bool autoFadeOnExternalSceneLoad = true;
@@ -117,6 +118,7 @@ public class SceneTransitionManager : MonoBehaviour
         AsyncOperation loadOperation = SceneManager.LoadSceneAsync(sceneName);
         if (loadOperation == null)
         {
+            SetAudioPaused(false);
             RestoreFrozenPlayerInput();
             _isTransitioning = false;
             yield break;
@@ -126,6 +128,7 @@ public class SceneTransitionManager : MonoBehaviour
         while (loadOperation.progress < 0.9f)
             yield return null;
 
+        SetAudioPaused(true);
         loadOperation.allowSceneActivation = true;
         while (!loadOperation.isDone)
             yield return null;
@@ -139,6 +142,7 @@ public class SceneTransitionManager : MonoBehaviour
 
         CaptureMusicSourcesForFade();
         ApplyMusicMultiplier(0f);
+        SetAudioPaused(false);
         yield return FadeVisualAndMusic(0f, 1f, fadeInDuration);
 
         RestoreFrozenPlayerInput();
@@ -211,6 +215,7 @@ public class SceneTransitionManager : MonoBehaviour
     IEnumerator FadeInAfterExternalLoad()
     {
         _isTransitioning = true;
+        SetAudioPaused(true);
 
         _fadeImage.color = fadeColor;
         _fadeCanvasGroup.alpha = 1f;
@@ -220,10 +225,19 @@ public class SceneTransitionManager : MonoBehaviour
 
         CaptureMusicSourcesForFade();
         ApplyMusicMultiplier(0f);
+        SetAudioPaused(false);
         yield return FadeVisualAndMusic(0f, 1f, fadeInDuration);
 
         RestoreFrozenPlayerInput();
         _isTransitioning = false;
+    }
+
+    void SetAudioPaused(bool paused)
+    {
+        if (!pauseAudioDuringSceneActivation)
+            return;
+
+        AudioListener.pause = paused;
     }
 
     void FreezePlayerInputInternal(GameObject playerRoot)

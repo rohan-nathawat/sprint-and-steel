@@ -12,12 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3851a5e018104df46a45b1794e730e92, type: 3}
   m_Name: Quest_New
   m_EditorClassIdentifier: Assembly-CSharp::QuestData
-  questName: Defeat 8 Monsters
+  questName: Defeat 4 Monsters
   location: Dungeon
   difficulty: 0
   status: 3
   sceneName: Dungeon
-  objectiveType: 0
+  objectiveType: 1
   objectiveTarget: 4
   rewardCurrency: 50
   hubSceneName: Hub

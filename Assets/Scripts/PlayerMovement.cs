@@ -72,7 +72,7 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (QuestBoardUI.IsAnyBoardOpen)
+        if (QuestBoardUI.IsAnyBoardOpen || ShopUI.IsAnyShopOpen)
         {
             movement = Vector2.zero;
             rb.linearVelocity = Vector2.zero;
@@ -165,7 +165,7 @@ public class PlayerMovement : MonoBehaviour
 
         while (elapsedTime < dashDuration)
         {
-            if (QuestBoardUI.IsAnyBoardOpen)
+            if (QuestBoardUI.IsAnyBoardOpen || ShopUI.IsAnyShopOpen)
                 break;
 
             if (playerKnockback != null && playerKnockback.isKnockbackActive)

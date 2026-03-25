@@ -8,7 +8,7 @@ using UnityEngine;
 
 public enum QuestDifficulty { Easy, Medium, Hard }
 public enum QuestStatus     { Locked, Unlocked }
-public enum QuestObjectiveType { DefeatEnemies }
+public enum QuestObjectiveType { NoObjective, DefeatEnemies }
 
 [CreateAssetMenu(menuName = "Sprint & Steel/Quest", fileName = "Quest_New")]
 public class QuestData : ScriptableObject

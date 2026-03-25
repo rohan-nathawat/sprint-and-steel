@@ -123,8 +123,9 @@ public static class QuestBoardSetup
         fdRT.offsetMin = new Vector2(0, FOOT_H); fdRT.offsetMax = new Vector2(0, FOOT_H+1);
         footDiv.AddComponent<Image>().color = ColBorder;
 
-        HintLabel(footer.transform, "[ENTER] Accept", new Vector2(-PAD - 120f, 0));
-        HintLabel(footer.transform, "[ESC] Close",    new Vector2(-PAD,        0));
+        HintLabel(footer.transform, "[W/S or ↑/↓] Select", new Vector2(-PAD - 320f, 0));
+        HintLabel(footer.transform, "[ENTER] Accept",      new Vector2(-PAD - 140f, 0));
+        HintLabel(footer.transform, "[ESC] Close",         new Vector2(-PAD,        0));
 
         // ── Row prefab (not placed in scene, just built) ─────
         var rowPrefab = BuildRowPrefab();
