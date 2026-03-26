@@ -103,7 +103,7 @@ public static class ShopSetup
 
         HintLabel(footer.transform, "[W/S or ↑/↓] Select", new Vector2(-PAD - (360f * SCALE), 0));
         HintLabel(footer.transform, "[ENTER] Buy", new Vector2(-PAD - (170f * SCALE), 0));
-        HintLabel(footer.transform, "[ESC] Close", new Vector2(-PAD, 0));
+        HintLabel(footer.transform, "[X] Close", new Vector2(-PAD, 0));
 
         var rowsRoot = Rect("RowsRoot", board.transform);
         var rrRT = rowsRoot.GetComponent<RectTransform>();

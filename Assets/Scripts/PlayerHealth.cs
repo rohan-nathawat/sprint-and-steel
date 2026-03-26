@@ -1,5 +1,6 @@
 using UnityEngine;
 using System;
+using UnityEngine.SceneManagement;
 
 public class PlayerHealth : MonoBehaviour
 {
@@ -114,6 +115,9 @@ public class PlayerHealth : MonoBehaviour
     {
         OnPlayerDied?.Invoke(this);
         Debug.Log("Player died.");
-        Destroy(gameObject);
+        Scene activeScene = SceneManager.GetActiveScene();
+        Time.timeScale = 0f;
+        SceneTransitionManager.FreezePlayerInput(gameObject);
+        SceneTransitionManager.LoadScene(activeScene.name);
     }
 }

@@ -22,7 +22,7 @@ public class ShopkeeperNPC : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.E))
             ToggleShop();
 
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.X))
         {
             ShopUI shop = FindFirstObjectByType<ShopUI>();
             if (shop != null)

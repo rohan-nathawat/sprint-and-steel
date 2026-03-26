@@ -40,7 +40,7 @@ public static class ShopUpgrades
             type = ShopUpgradeType.SprintDelayReduction,
             title = "Sprint Delay",
             description = "Reduce dash cooldown between sprints.",
-            maxLevel = 5,
+            maxLevel = 7,
             baseCost = 60,
             costStep = 25,
         },

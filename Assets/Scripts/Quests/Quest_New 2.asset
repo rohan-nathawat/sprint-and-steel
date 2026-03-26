@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::QuestData
   questName: Clear the Forest
   location: Forest
-  difficulty: 1
+  difficulty: 0
   status: 1
   sceneName: Forest
   objectiveType: 1

@@ -2,11 +2,6 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
-// ─────────────────────────────────────────────────────────────
-//  HUDManager.cs
-//  Attach to a Canvas GameObject in your scene.
-//  Assign all references in the Inspector.
-// ─────────────────────────────────────────────────────────────
 public class HUDManager : MonoBehaviour
 {
     [Header("Health")]
@@ -16,7 +11,7 @@ public class HUDManager : MonoBehaviour
     [Header("Sprint")]
     public Image sprintBarFill;
     public TextMeshProUGUI sprintStatusText;     // "READY" / "CHARGING"
-    public Image sprintIconSquare;               // small coloured square
+    public Image sprintIconSquare;               
 
     [Header("Attack")]
     public Image attackBarFill;
@@ -31,14 +26,12 @@ public class HUDManager : MonoBehaviour
     public bool autoBindSceneSystems = true;
     public float autoBindRetryInterval = 1f;
 
-    // ── Colours (match the mockup) ──────────────────────────
     static readonly Color ColHealth  = new Color(0.878f, 0.361f, 0.478f); // #E05C7A
     static readonly Color ColSprint  = new Color(0.361f, 0.878f, 0.753f); // #5CE0C0
     static readonly Color ColAttack  = new Color(0.878f, 0.722f, 0.361f); // #E0B85C
     static readonly Color ColDim     = new Color(1f, 1f, 1f, 0.25f);
     static readonly Color ColReadyAtk= new Color(0.878f, 0.722f, 0.361f);
 
-    // ── Internal state ──────────────────────────────────────
     float _currentHealth = 1f;   // 0–1
     float _currentSprint = 1f;   // 0–1
     float _currentAttack = 0.4f; // 0–1
@@ -74,11 +67,6 @@ public class HUDManager : MonoBehaviour
         RefreshFromGameplay();
     }
 
-    // ─────────────────────────────────────────────────────────
-    //  Public API — call these from your Player / GameManager
-    // ─────────────────────────────────────────────────────────
-
-    /// <summary>Update health bar. value = 0..1</summary>
     public void SetHealth(float value)
     {
         _currentHealth = Mathf.Clamp01(value);
@@ -90,7 +78,6 @@ public class HUDManager : MonoBehaviour
         }
     }
 
-    /// <summary>Update sprint meter. value = 0..1</summary>
     public void SetSprint(float value)
     {
         _currentSprint = Mathf.Clamp01(value);
@@ -98,7 +85,6 @@ public class HUDManager : MonoBehaviour
         RefreshStatusLabel(sprintStatusText, sprintIconSquare, _currentSprint, ColSprint, "READY");
     }
 
-    /// <summary>Update attack meter. value = 0..1</summary>
     public void SetAttack(float value)
     {
         _currentAttack = Mathf.Clamp01(value);
@@ -106,7 +92,6 @@ public class HUDManager : MonoBehaviour
         RefreshStatusLabel(attackStatusText, attackIconSquare, _currentAttack, ColReadyAtk, "READY");
     }
 
-    /// <summary>Set remaining time in seconds.</summary>
     public void SetTime(float seconds)
     {
         _timeRemaining = Mathf.Max(0, seconds);
@@ -119,16 +104,11 @@ public class HUDManager : MonoBehaviour
         }
     }
 
-    /// <summary>Add kills count.</summary>
     public void SetKills(int kills)
     {
         _kills = kills;
         if (killsText) killsText.text = "Kills: " + kills;
     }
-
-    // ─────────────────────────────────────────────────────────
-    //  Internal helpers
-    // ─────────────────────────────────────────────────────────
 
     void RefreshStatusLabel(TextMeshProUGUI label, Image icon, float value, Color readyColor, string readyWord)
     {
@@ -306,9 +286,6 @@ public class HUDManager : MonoBehaviour
         if (attackIconSquare) attackIconSquare.color = ColDim;
     }
 
-    // ─────────────────────────────────────────────────────────
-    //  Demo: drive values in Play Mode without a player script
-    // ─────────────────────────────────────────────────────────
 #if UNITY_EDITOR
     [Header("── Editor Preview (remove in production) ──")]
     [Range(0,1)] public float previewHealth  = 0.65f;

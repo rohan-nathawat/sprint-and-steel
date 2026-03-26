@@ -58,7 +58,7 @@ public class QuestBoardUI : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.KeypadEnter))
                 OnConfirmYes();
-            if (Input.GetKeyDown(KeyCode.Escape))
+            if (Input.GetKeyDown(KeyCode.X))
                 OnConfirmNo();
             return;
         }
@@ -68,7 +68,7 @@ public class QuestBoardUI : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.UpArrow)   || Input.GetKeyDown(KeyCode.W)) MoveSelection(-1);
         if (Input.GetKeyDown(KeyCode.DownArrow)  || Input.GetKeyDown(KeyCode.S)) MoveSelection( 1);
         if (Input.GetKeyDown(KeyCode.Return)     || Input.GetKeyDown(KeyCode.KeypadEnter)) TryAccept();
-        if (Input.GetKeyDown(KeyCode.Escape))    Hide();
+        if (Input.GetKeyDown(KeyCode.X))    Hide();
     }
 
     // ─────────────────────────────────────────────────────────

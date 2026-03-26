@@ -2,11 +2,6 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using TMPro;
 
-// ─────────────────────────────────────────────────────────────
-//  NPC.cs
-//  Attach to any NPC GameObject.
-//  Player triggers dialogue by pressing E while in range.
-// ─────────────────────────────────────────────────────────────
 public class NPC : MonoBehaviour
 {
     [Header("NPC Info")]
@@ -53,7 +48,7 @@ public class NPC : MonoBehaviour
         if (Keyboard.current.eKey.wasPressedThisFrame)
             Interact();
 
-        if (Keyboard.current.escapeKey.wasPressedThisFrame)
+        if (Keyboard.current.xKey.wasPressedThisFrame)
             Close();
     }
 
@@ -117,12 +112,16 @@ public class NPC : MonoBehaviour
             _interactionPrompt = promptGO.AddComponent<TextMeshPro>();
 
         _interactionPrompt.alignment = TextAlignmentOptions.Center;
-        _interactionPrompt.fontSize = 6f;
+        _interactionPrompt.fontSize = 9f;
         _interactionPrompt.color = promptColor;
         _interactionPrompt.enableWordWrapping = false;
-        _interactionPrompt.outlineWidth = 0.2f;
-        _interactionPrompt.outlineColor = new Color(0f, 0f, 0f, 0.8f);
+        _interactionPrompt.outlineWidth = 0.3f;
+        _interactionPrompt.outlineColor = Color.black;
         _interactionPrompt.raycastTarget = false;
+
+        MeshRenderer promptRenderer = _interactionPrompt.GetComponent<MeshRenderer>();
+        if (promptRenderer != null)
+            promptRenderer.sortingOrder = 500;
     }
 
     void UpdateInteractionPrompt()

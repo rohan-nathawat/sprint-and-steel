@@ -18,9 +18,9 @@ public class EnemyFollow : MonoBehaviour
     [Header("Knockback Recovery")]
     public float postKnockbackPause = 0.2f;
 
-    public LayerMask obstacleLayer;    // Layer for obstacles to avoid
-    public float avoidanceDistance = 1f; // Distance to check for obstacles
-    public float turnSpeed = 5f;      // How quickly the enemy turns
+    public LayerMask obstacleLayer;   
+    public float avoidanceDistance = 1f;
+    public float turnSpeed = 5f;    
 
     private enum EnemyState { Idle, Chase, Knockback }
     private EnemyState state = EnemyState.Idle;
@@ -36,8 +36,8 @@ public class EnemyFollow : MonoBehaviour
         if(knockbackScript != null && knockbackScript.isKnockbackActive) 
         {
             knockbackRecoveryTimer = postKnockbackPause;
-            rb.linearVelocity = Vector2.zero; // Stop AI movement
-            return; // Skip chasing / idle logic
+            rb.linearVelocity = Vector2.zero;
+            return; 
         }
 
         // Pause briefly after knockback before resuming follow behavior.
@@ -54,11 +54,10 @@ public class EnemyFollow : MonoBehaviour
         if(distance <= detectionRadius) state = EnemyState.Chase;
         else state = EnemyState.Idle;
 
-        // Optional: switch to attack if within attack radius
+        
         if(distance <= attackRadius) 
         {
-            // Here you can trigger attack animation / logic
-            // e.g., animator.SetTrigger("Attack");
+            // animator.SetTrigger("Attack");
         }
 
         // State behavior
@@ -66,13 +65,11 @@ public class EnemyFollow : MonoBehaviour
         {
             case EnemyState.Idle:
                 rb.linearVelocity = Vector2.zero;
-                // Optional: play idle animation
                 // animator.SetBool("IsMoving", false);
                 break;
 
             case EnemyState.Chase:
                 ChasePlayer();
-                // Optional: play moving animation
                 // animator.SetBool("IsMoving", true);
                 break;
         }
@@ -82,33 +79,28 @@ public class EnemyFollow : MonoBehaviour
     {
         Vector2 targetDirection = (player.position - transform.position).normalized;
         Vector2 currentDirection = rb.linearVelocity.normalized;
-        
-        // If not moving, start with target direction
+
         if (currentDirection == Vector2.zero) currentDirection = targetDirection;
-        
-        // Smoothly interpolate towards target direction
+
         Vector2 desiredDirection = Vector2.Lerp(currentDirection, targetDirection, Time.deltaTime * turnSpeed);
         
-        // Check for obstacles ahead
         RaycastHit2D hit = Physics2D.Raycast(transform.position, desiredDirection, avoidanceDistance, obstacleLayer);
         if (hit.collider != null)
         {
-            // Obstacle detected, try to avoid by turning
-            Vector2 avoidDirection = Vector2.Perpendicular(desiredDirection);
             
-            // Check left side
+            Vector2 avoidDirection = Vector2.Perpendicular(desiredDirection);
+
             if (Physics2D.Raycast(transform.position, avoidDirection, avoidanceDistance, obstacleLayer).collider == null)
             {
                 desiredDirection = avoidDirection;
             }
-            // Check right side
+  
             else if (Physics2D.Raycast(transform.position, -avoidDirection, avoidanceDistance, obstacleLayer).collider == null)
             {
                 desiredDirection = -avoidDirection;
             }
             else
             {
-                // Both sides blocked, stop or reverse
                 desiredDirection = -desiredDirection;
             }
         }
@@ -116,9 +108,6 @@ public class EnemyFollow : MonoBehaviour
         rb.linearVelocity = desiredDirection * moveSpeed;
     }
 
-    // Call this from your player attack
-
-    // Optional: visualize detection radius in editor
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.red;

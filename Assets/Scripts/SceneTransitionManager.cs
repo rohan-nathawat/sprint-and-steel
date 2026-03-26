@@ -119,6 +119,7 @@ public class SceneTransitionManager : MonoBehaviour
         if (loadOperation == null)
         {
             SetAudioPaused(false);
+            Time.timeScale = 1f;
             RestoreFrozenPlayerInput();
             _isTransitioning = false;
             yield break;
@@ -146,6 +147,7 @@ public class SceneTransitionManager : MonoBehaviour
         yield return FadeVisualAndMusic(0f, 1f, fadeInDuration);
 
         RestoreFrozenPlayerInput();
+        Time.timeScale = 1f;
         _isTransitioning = false;
     }
 
@@ -229,6 +231,7 @@ public class SceneTransitionManager : MonoBehaviour
         yield return FadeVisualAndMusic(0f, 1f, fadeInDuration);
 
         RestoreFrozenPlayerInput();
+        Time.timeScale = 1f;
         _isTransitioning = false;
     }
 

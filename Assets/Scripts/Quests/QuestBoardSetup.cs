@@ -125,7 +125,7 @@ public static class QuestBoardSetup
 
         HintLabel(footer.transform, "[W/S or ↑/↓] Select", new Vector2(-PAD - 320f, 0));
         HintLabel(footer.transform, "[ENTER] Accept",      new Vector2(-PAD - 140f, 0));
-        HintLabel(footer.transform, "[ESC] Close",         new Vector2(-PAD,        0));
+        HintLabel(footer.transform, "[X] Close",         new Vector2(-PAD,        0));
 
         // ── Row prefab (not placed in scene, just built) ─────
         var rowPrefab = BuildRowPrefab();

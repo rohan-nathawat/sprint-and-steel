@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::QuestData
   questName: Replay the Tutorial
   location: 'Training Area '
-  difficulty: 1
+  difficulty: 0
   status: 1
   sceneName: Tutorial
   objectiveType: 0

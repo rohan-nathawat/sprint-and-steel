@@ -59,6 +59,14 @@ public class PlayerMovement : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         playerKnockback = GetComponent<PlayerKnockback>();
 
+        if (rb != null)
+        {
+            if (rb.collisionDetectionMode == CollisionDetectionMode2D.Discrete)
+                rb.collisionDetectionMode = CollisionDetectionMode2D.Continuous;
+
+            rb.interpolation = RigidbodyInterpolation2D.Interpolate;
+        }
+
         if (spriteRenderer == null)
             spriteRenderer = GetComponent<SpriteRenderer>();
 
@@ -75,22 +83,25 @@ public class PlayerMovement : MonoBehaviour
         if (QuestBoardUI.IsAnyBoardOpen || ShopUI.IsAnyShopOpen)
         {
             movement = Vector2.zero;
-            rb.linearVelocity = Vector2.zero;
-            UpdateDirectionSprite();
+            //UpdateDirectionSprite();
             return;
         }
 
         if (playerKnockback != null && playerKnockback.isKnockbackActive)
         {
-            UpdateDirectionSprite();
+            //UpdateDirectionSprite();
             return;
         }
 
         bool isDashingInput = Keyboard.current.leftShiftKey.isPressed;
 
-        if (movement.sqrMagnitude > 1f) movement = movement.normalized;
-        rb.linearVelocity = movement * moveSpeed;
-        UpdateDirectionSprite();
+        if (movement.sqrMagnitude > 1f)
+            movement = movement.normalized;
+
+        if (movement.sqrMagnitude > 0.0001f)
+            lastFacingDirection = movement.normalized;
+
+        //UpdateDirectionSprite();
 
         if (dashCooldownTimer > 0)
         {
@@ -99,12 +110,33 @@ public class PlayerMovement : MonoBehaviour
         if (isDashingInput && !isDashing && dashCooldownTimer <= 0)
         {
             TryPlayDashSfx();
-            StartCoroutine(Dash(movement));
+            Vector2 dashDirection = movement.sqrMagnitude > 0.0001f ? movement.normalized : lastFacingDirection;
+            StartCoroutine(Dash(dashDirection));
             dashCooldownTimer = dashCooldown;
         }
     }
 
-    private void UpdateDirectionSprite()
+    void FixedUpdate()
+    {
+        if (rb == null)
+            return;
+
+        if (isDashing)
+            return;
+
+        if (QuestBoardUI.IsAnyBoardOpen || ShopUI.IsAnyShopOpen)
+        {
+            rb.linearVelocity = Vector2.zero;
+            return;
+        }
+
+        if (playerKnockback != null && playerKnockback.isKnockbackActive)
+            return;
+
+        rb.linearVelocity = movement * moveSpeed;
+    }
+
+    /*private void UpdateDirectionSprite()
     {
         if (spriteRenderer == null)
             return;
@@ -120,7 +152,7 @@ public class PlayerMovement : MonoBehaviour
             spriteRenderer.sprite = targetSprite;
     }
 
-    private Sprite GetSpriteForDirection(Vector2 direction)
+    /*private Sprite GetSpriteForDirection(Vector2 direction)
     {
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
         if (angle < 0f)
@@ -142,7 +174,7 @@ public class PlayerMovement : MonoBehaviour
             return downSprite;
 
         return downRightSprite;
-    }
+    }*/
 
     public void Movement(InputAction.CallbackContext context)
     {
@@ -162,6 +194,7 @@ public class PlayerMovement : MonoBehaviour
         isDashing = true;
         enemiesHitThisDash.Clear();
         float elapsedTime = 0f;
+        WaitForFixedUpdate wait = new WaitForFixedUpdate();
 
         while (elapsedTime < dashDuration)
         {
@@ -177,8 +210,8 @@ public class PlayerMovement : MonoBehaviour
 
             CheckDashCollisions();
 
-            elapsedTime += Time.deltaTime;
-            yield return null;
+            elapsedTime += Time.fixedDeltaTime;
+            yield return wait;
         }
 
         isDashing = false;

@@ -10,18 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3851a5e018104df46a45b1794e730e92, type: 3}
-  m_Name: Quest_New
+  m_Name: Quest_New 4
   m_EditorClassIdentifier: Assembly-CSharp::QuestData
-  questName: Defeat 4 Monsters
-  location: Dungeon
-  difficulty: 0
+  questName: The Gauntlet
+  location: Sector
+  difficulty: 2
   status: 1
-  sceneName: Dungeon
-  objectiveType: 1
-  objectiveTarget: 4
-  rewardCurrency: 50
+  sceneName: Sector
+  objectiveType: 0
+  objectiveTarget: 1
+  rewardCurrency: 0
   hubSceneName: Hub
-  description: 'Defeat 4 Monsters.
-
-    Help! My dungeon has become littered with
-    monsters. Could you get rid of some of them for me? '
+  description: 

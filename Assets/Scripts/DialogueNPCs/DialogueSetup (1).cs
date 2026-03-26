@@ -111,7 +111,7 @@ public static class DialogueSetupMenu
 
         // ── Key Hints ────────────────────────────────────────
         AddHint("Hint_Continue", box.transform, new Vector2(-PADDING - 90f, PADDING), "[E] Continue");
-        AddHint("Hint_Close",    box.transform, new Vector2(-PADDING,       PADDING), "[ESC] Close");
+        AddHint("Hint_Close",    box.transform, new Vector2(-PADDING,       PADDING), "[X] Close");
 
         // ── Finish ───────────────────────────────────────────
         mgr.dialogueBox = box;

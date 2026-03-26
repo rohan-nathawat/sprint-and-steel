@@ -56,7 +56,7 @@ public class ShopUI : MonoBehaviour
         if (!_isOpen)
             return;
 
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.X))
         {
             Hide();
             return;
@@ -186,7 +186,7 @@ public class ShopUI : MonoBehaviour
             }
 
             if (costTexts != null && i < costTexts.Length && costTexts[i] != null)
-                costTexts[i].color = maxed ? new Color(upgradeColor.r, upgradeColor.g, upgradeColor.b, 0.95f) : (affordable ? upgradeColor : ColMuted);
+                costTexts[i].color = Color.black;
 
             if (buyButtons != null && i < buyButtons.Length && buyButtons[i] != null)
             {
